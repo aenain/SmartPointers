@@ -1,0 +1,201 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71A889E513A7A79800263869 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71A889E413A7A79800263869 /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		71A889DE13A7A79800263869 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		71A889E013A7A79800263869 /* SmartPointers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SmartPointers; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A889E413A7A79800263869 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		71A889E613A7A79800263869 /* SmartPointers.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SmartPointers.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71A889DD13A7A79800263869 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71A889D513A7A79800263869 = {
+			isa = PBXGroup;
+			children = (
+				71A889E313A7A79800263869 /* SmartPointers */,
+				71A889E113A7A79800263869 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71A889E113A7A79800263869 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71A889E013A7A79800263869 /* SmartPointers */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71A889E313A7A79800263869 /* SmartPointers */ = {
+			isa = PBXGroup;
+			children = (
+				71A889E413A7A79800263869 /* main.cpp */,
+				71A889E613A7A79800263869 /* SmartPointers.1 */,
+			);
+			path = SmartPointers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71A889DF13A7A79800263869 /* SmartPointers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71A889E913A7A79800263869 /* Build configuration list for PBXNativeTarget "SmartPointers" */;
+			buildPhases = (
+				71A889DC13A7A79800263869 /* Sources */,
+				71A889DD13A7A79800263869 /* Frameworks */,
+				71A889DE13A7A79800263869 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartPointers;
+			productName = SmartPointers;
+			productReference = 71A889E013A7A79800263869 /* SmartPointers */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71A889D713A7A79800263869 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = AdTaily;
+			};
+			buildConfigurationList = 71A889DA13A7A79800263869 /* Build configuration list for PBXProject "SmartPointers" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 71A889D513A7A79800263869;
+			productRefGroup = 71A889E113A7A79800263869 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71A889DF13A7A79800263869 /* SmartPointers */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71A889DC13A7A79800263869 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71A889E513A7A79800263869 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		71A889E713A7A79800263869 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		71A889E813A7A79800263869 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		71A889EA13A7A79800263869 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		71A889EB13A7A79800263869 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71A889DA13A7A79800263869 /* Build configuration list for PBXProject "SmartPointers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A889E713A7A79800263869 /* Debug */,
+				71A889E813A7A79800263869 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71A889E913A7A79800263869 /* Build configuration list for PBXNativeTarget "SmartPointers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A889EA13A7A79800263869 /* Debug */,
+				71A889EB13A7A79800263869 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71A889D713A7A79800263869 /* Project object */;
+}
