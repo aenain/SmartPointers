@@ -21,6 +21,12 @@ struct Engine {
 void nothing_at_all(Engine *engine) {
     SmartPointer<Engine> ptr(engine);
     SmartPointer<Engine> ptr_copy(ptr);
+
+    if (ptr.is_null())
+        cout << "null" << endl;
+    else
+        cout << "not null" << endl;
+
     cout << "references: " << ptr_copy.use_count() << endl;
     cout << "from pointer[imei]: " << ptr->imei << endl;
     cout << "from copied_pointer[imei]: " << (*ptr_copy).imei << endl;

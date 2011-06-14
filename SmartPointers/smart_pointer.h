@@ -23,10 +23,12 @@ class SmartPointer {
     
 public:
     Counter use_count() const;
+    bool is_null() const;
+
     T & operator*();
     T * operator->();
     T ** operator&();
-    operator bool() const;
+
     SmartPointer<T> & operator=(const SmartPointer<T> &source);
     SmartPointer(T *element) : _pointer(element), _counter(new Counter(0)) { add_reference(); }
     SmartPointer(const SmartPointer<T> &source) : _pointer(source._pointer), _counter(source._counter) { add_reference(); }
@@ -56,6 +58,11 @@ Counter SmartPointer<T>::use_count() const {
 }
 
 template <class T>
+bool SmartPointer<T>::is_null() const {
+    return (_pointer == NULL);
+}
+
+template <class T>
 T & SmartPointer<T>::operator*() {
     return *_pointer;
 }
@@ -68,11 +75,6 @@ T * SmartPointer<T>::operator->() {
 template <class T>
 T ** SmartPointer<T>::operator&() {
     return &_pointer;
-}
-
-template <class T>
-SmartPointer<T>::operator bool() const {
-    return _pointer != NULL;
 }
 
 template <class T>
