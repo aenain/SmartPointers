@@ -10,31 +10,43 @@
 #include "smart_pointer.h"
 using namespace std;
 
-struct Engine {
-    string imei;
-    int pistons;
-    double capacity;
-    Engine(const int &pistons, const double &capacity, const string &imei) : pistons(pistons), capacity(capacity), imei(imei) {}
-    ~Engine() { cout << "destructor!" << endl; }
+struct Node {
+    int key;
+    SmartPointer<Node> parent, left, right;
+    Node(const int &key = 0) : key(key), parent(NULL), left(NULL), right(NULL) {}
 };
 
-void nothing_at_all(Engine *engine) {
-    SmartPointer<Engine> ptr(engine);
-    SmartPointer<Engine> ptr_copy(ptr);
+void create_tree(SmartPointer<Node> &root) {
+    SmartPointer<Node> parent = root;
 
-    if (ptr.is_null())
-        cout << "null" << endl;
-    else
-        cout << "not null" << endl;
+    for (int i = 0; i < 10; i++) {
+        Node *node = new Node(i);
+        SmartPointer<Node> current_node(node);
 
-    cout << "references: " << ptr_copy.use_count() << endl;
-    cout << "from pointer[imei]: " << ptr->imei << endl;
-    cout << "from copied_pointer[imei]: " << (*ptr_copy).imei << endl;
+        current_node->parent = parent;
+
+        if (i % 2 == 0)
+            parent->left = current_node;
+        else
+            parent->right = current_node;
+
+        parent = current_node;
+    }
+}
+
+void print_tree(const SmartPointer<Node> &root) { // pre-order
+    if (! root.is_null()) {
+        cout << root.use_count() << ' ' << root->key << endl;
+
+        if (! root ->left.is_null()) print_tree(root->left);
+        if (! root ->right.is_null()) print_tree(root->right);
+    }
 }
 
 int main (int argc, const char * argv[])
 {
-    Engine *engine = new Engine(6, 2401.07, "1234567890");
-    nothing_at_all(engine);
+    SmartPointer<Node> root(new Node(50));
+    create_tree(root);
+    print_tree(root);
     return 0;
 }
