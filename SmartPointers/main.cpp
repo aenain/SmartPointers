@@ -17,11 +17,11 @@ int main() {
     BST<int> bst(rand()); // you can pass root value also as an argument in constructor :)
     
     for (int count = 1; count < 10000; count++) {
-        int *recently_added = new int(rand());
-        bst.insert(*recently_added);
+        int recently_added = rand();
+        bst.insert(recently_added);
 
         if (count % 2 == 0) {
-            bst.remove(*recently_added);
+            bst.remove(recently_added);
         }
     }
 
