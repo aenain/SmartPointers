@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71A889E513A7A79800263869 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71A889E413A7A79800263869 /* main.cpp */; };
+		71C1049D13AF681200831FC7 /* smart_pointers_example.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 71C1049B13AF681200831FC7 /* smart_pointers_example.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,7 @@
 		71A889E413A7A79800263869 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		71A889E613A7A79800263869 /* SmartPointers.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SmartPointers.1; sourceTree = "<group>"; };
 		71A889EC13A7A7DA00263869 /* smart_pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smart_pointer.h; sourceTree = "<group>"; };
+		71C1049B13AF681200831FC7 /* smart_pointers_example.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = smart_pointers_example.cpp; sourceTree = "<group>"; };
 		71EB294B13AF175E00582435 /* bst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bst.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				71A889E413A7A79800263869 /* main.cpp */,
 				71EB294B13AF175E00582435 /* bst.h */,
 				71A889EC13A7A7DA00263869 /* smart_pointer.h */,
+				71C1049B13AF681200831FC7 /* smart_pointers_example.cpp */,
 				71A889E613A7A79800263869 /* SmartPointers.1 */,
 			);
 			path = SmartPointers;
@@ -119,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71A889E513A7A79800263869 /* main.cpp in Sources */,
+				71C1049D13AF681200831FC7 /* smart_pointers_example.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
