@@ -24,11 +24,17 @@ class SmartPointer {
 public:
     Counter use_count() const;
     bool is_null() const;
+    void nullify();
 
     T & operator*() const;
     T * operator->() const;
 
+    bool operator==(const SmartPointer<T> &other);
+    bool operator!=(const SmartPointer<T> &other);
+
     SmartPointer<T> & operator=(const SmartPointer<T> &source);
+    SmartPointer<T> & operator=(T *element);
+
     SmartPointer() : _pointer(NULL), _counter(new Counter(0)) { add_reference(); }
     SmartPointer(T *element) : _pointer(element), _counter(new Counter(0)) { add_reference(); }
     SmartPointer(const SmartPointer<T> &source) : _pointer(source._pointer), _counter(source._counter) { add_reference(); }
@@ -51,6 +57,7 @@ template <class T>
 void SmartPointer<T>::remove_object_if_there_are_no_references_left() {
     if (*_counter == 0 && _pointer) {
         delete _pointer;
+        delete _counter;
     }
 }
 
@@ -65,6 +72,15 @@ bool SmartPointer<T>::is_null() const {
 }
 
 template <class T>
+void SmartPointer<T>::nullify() {
+    remove_reference();
+    remove_object_if_there_are_no_references_left();
+
+    _pointer = NULL;
+    _counter = NULL;
+}
+
+template <class T>
 T & SmartPointer<T>::operator*() const {
     return *_pointer;
 }
@@ -75,12 +91,35 @@ T * SmartPointer<T>::operator->() const {
 }
 
 template <class T>
+bool SmartPointer<T>::operator==(const SmartPointer<T> &other
+) {
+    return (*_pointer == other->*_pointer);
+}
+
+template <class T>
+bool SmartPointer<T>::operator!=(const SmartPointer<T> &other) {
+    return (*_pointer != other->*_pointer);
+}
+
+template <class T>
 SmartPointer<T> & SmartPointer<T>::operator=(const SmartPointer<T> &source) {
     remove_reference();
     remove_object_if_there_are_no_references_left();
 
     _pointer = source._pointer;
     _counter = source._counter;
+
+    add_reference();
+    return *this;
+}
+
+template <class T>
+SmartPointer<T> & SmartPointer<T>::operator=(T *element) {
+    remove_reference();
+    remove_object_if_there_are_no_references_left();
+
+    _pointer = element;
+    _counter = new Counter(0);
 
     add_reference();
     return *this;
