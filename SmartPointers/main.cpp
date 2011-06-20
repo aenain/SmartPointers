@@ -7,22 +7,23 @@
 //
 
 #include <iostream>
+#include <time.h>
 #include "bst.h"
 using namespace std;
 
 int main() {
-    BST<int> bst(8); // you can pass root value also as an argument in constructor :)
+    srand(static_cast<unsigned int>(time(NULL)));
+
+    BST<int> bst(rand()); // you can pass root value also as an argument in constructor :)
     
-    // See: http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Binary_search_tree.svg/200px-Binary_search_tree.svg.png
-    //bst.insert(8); // root!
-    bst.insert(3);
-    bst.insert(10);
-    bst.insert(1);
-    bst.insert(6);
-    bst.insert(4);
-    bst.insert(14);
-    bst.insert(7);
-    bst.insert(13);
-    
+    for (int count = 1; count < 10000; count++) {
+        int *recently_added = new int(rand());
+        bst.insert(*recently_added);
+
+        if (count % 2 == 0) {
+            bst.remove(*recently_added);
+        }
+    }
+
     bst.in_order();
 }

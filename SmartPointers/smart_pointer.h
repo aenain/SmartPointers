@@ -91,14 +91,13 @@ T * SmartPointer<T>::operator->() const {
 }
 
 template <class T>
-bool SmartPointer<T>::operator==(const SmartPointer<T> &other
-) {
-    return (*_pointer == other->*_pointer);
+bool SmartPointer<T>::operator==(const SmartPointer<T> &other) {
+    return (_pointer == other._pointer);
 }
 
 template <class T>
 bool SmartPointer<T>::operator!=(const SmartPointer<T> &other) {
-    return (*_pointer != other->*_pointer);
+    return (_pointer == other._pointer);
 }
 
 template <class T>

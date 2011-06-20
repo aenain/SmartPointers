@@ -27,6 +27,8 @@ private:
         SmartPointer<Node> max(); // returns a pointer to child of given node with maximal element.
         SmartPointer<Node> successor(); // returns a pointer to successor (next node in in-order method) of given node.
         T & val() { return *element; } // returns as value object of node instead of pointer to it.
+        bool operator==(const Node &other);
+        bool operator!=(const Node &other);
 
         Node()
         : element(NULL), left(NULL), right(NULL), parent(NULL) {};
@@ -198,6 +200,16 @@ void BST<T>::post_order(SmartPointer<Node> &node) {
         if (! node->right.is_null() ) post_order(node->right);
         cout << node->val() << endl;
     }
+}
+
+template <typename T>
+bool BST<T>::Node::operator==(const Node &other) {
+    return (element == other.element);
+}
+
+template <typename T>
+bool BST<T>::Node::operator!=(const Node &other) {
+    return (element != other.element);
 }
 
 template <typename T>
