@@ -26,7 +26,7 @@ private:
         SmartPointer<Node> min(); // returns a pointer to child of given node with minimal element.
         SmartPointer<Node> max(); // returns a pointer to child of given node with maximal element.
         SmartPointer<Node> successor(); // returns a pointer to successor (next node in in-order method) of given node.
-        T val() { return *element; } // returns as value object of node instead of pointer to it.
+        T & val() { return *element; } // returns as value object of node instead of pointer to it.
 
         Node()
         : element(NULL), left(NULL), right(NULL), parent(NULL) {};
@@ -35,11 +35,11 @@ private:
         Node(SmartPointer<Node> &left, SmartPointer<Node> &right)
         : element(NULL), left(left), right(right) {};
         Node(const T &new_element)
-        : left(NULL), right(NULL), parent(NULL) { SmartPointer<T> element(new T(new_element)); };
+        : left(NULL), right(NULL), parent(NULL), element(new T(new_element)) {};
         Node(const T &new_element, SmartPointer<Node> &parent)
-        : left(NULL), right(NULL), parent(parent) { SmartPointer<T> element(new T(new_element)); };
+        : left(NULL), right(NULL), parent(parent), element(new T(new_element)) {};
         Node(const T &new_element, SmartPointer<Node> &left, SmartPointer<Node> &right)
-        : left(left), right(right), parent(NULL) { SmartPointer<T> element(new T(new_element)); };
+        : left(left), right(right), parent(NULL), element(new T(new_element)) {};
     };
     
     SmartPointer<Node> private_root;
@@ -59,10 +59,10 @@ public:
     void post_order(SmartPointer<Node> &node);
     void post_order();
     
-    friend T Node::val(); // to hide whole logic.
+    friend T & Node::val(); // to hide whole logic.
     
     BST() : private_root(NULL) {};
-    BST(const T &root) { SmartPointer<Node> private_root(new Node(root)); };
+    BST(const T &root) : private_root(new Node(root)) {};
 };
 
 // IMPLEMENTATION
@@ -79,15 +79,15 @@ bool BST<T>::insert(const T &new_element) {
     else {
         while (! destination.is_null() ) {
             destination_parent = destination;
-            
+
             if ( new_node->val() < destination->val() )
                 destination = destination->left;
             else
                 destination = destination->right;
         }
-        
+
         new_node->parent = destination_parent;
-        
+
         if ( new_node->val() < destination_parent->val() )
             destination_parent->left = new_node;
         else
