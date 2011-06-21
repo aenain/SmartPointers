@@ -26,4 +26,5 @@ int main() {
     }
 
     bst.in_order();
+    bst.clear();
 }

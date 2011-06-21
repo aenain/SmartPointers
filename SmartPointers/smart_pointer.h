@@ -55,10 +55,8 @@ void SmartPointer<T>::remove_reference() {
 
 template <class T>
 void SmartPointer<T>::remove_object_if_there_are_no_references_left() {
-    if (*_counter == 0 && _pointer) {
+    if (*_counter == 0 && _pointer)
         delete _pointer;
-        delete _counter;
-    }
 }
 
 template <class T>
@@ -77,7 +75,6 @@ void SmartPointer<T>::nullify() {
     remove_object_if_there_are_no_references_left();
 
     _pointer = NULL;
-    _counter = NULL;
 }
 
 template <class T>

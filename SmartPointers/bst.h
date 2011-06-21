@@ -60,6 +60,9 @@ public:
     void in_order();
     void post_order(SmartPointer<Node> &node);
     void post_order();
+
+    void clear(SmartPointer<Node> &node);
+    void clear();
     
     friend T & Node::val(); // to hide whole logic.
     
@@ -199,6 +202,26 @@ void BST<T>::post_order(SmartPointer<Node> &node) {
         if (! node->left.is_null() ) post_order(node->left);
         if (! node->right.is_null() ) post_order(node->right);
         cout << node->val() << endl;
+    }
+}
+
+template <typename T>
+void BST<T>::clear() {
+    clear(private_root);
+}
+
+template <typename T>
+void BST<T>::clear(SmartPointer<Node> &node) {
+    if (! node.is_null() ) {
+        if (! node->left.is_null() ) {
+            clear(node->left);
+            node->left.nullify();
+        }
+        if (! node->right.is_null() ) {
+            clear(node->right);
+            node->right.nullify();
+        }
+        node.nullify();
     }
 }
 
