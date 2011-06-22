@@ -30,18 +30,12 @@ private:
         bool operator==(const Node &other);
         bool operator!=(const Node &other);
 
-        Node()
-        : element(NULL), left(NULL), right(NULL), parent(NULL) {};
-        Node(SmartPointer<Node> &parent)
-        : element(NULL), left(NULL), right(NULL), parent(parent) {};
-        Node(SmartPointer<Node> &left, SmartPointer<Node> &right)
-        : element(NULL), left(left), right(right) {};
-        Node(const T &new_element)
-        : left(NULL), right(NULL), parent(NULL), element(new T(new_element)) {};
-        Node(const T &new_element, SmartPointer<Node> &parent)
-        : left(NULL), right(NULL), parent(parent), element(new T(new_element)) {};
-        Node(const T &new_element, SmartPointer<Node> &left, SmartPointer<Node> &right)
-        : left(left), right(right), parent(NULL), element(new T(new_element)) {};
+        Node() : element(NULL), left(NULL), right(NULL), parent(NULL) {};
+        Node(SmartPointer<Node> &parent) : element(NULL), left(NULL), right(NULL), parent(parent) {};
+        Node(SmartPointer<Node> &left, SmartPointer<Node> &right) : element(NULL), left(left), right(right) {};
+        Node(const T &new_element) : left(NULL), right(NULL), parent(NULL), element(new T(new_element)) {};
+        Node(const T &new_element, SmartPointer<Node> &parent) : left(NULL), right(NULL), parent(parent), element(new T(new_element)) {};
+        Node(const T &new_element, SmartPointer<Node> &left, SmartPointer<Node> &right) : left(left), right(right), parent(NULL), element(new T(new_element)) {};
     };
     
     SmartPointer<Node> private_root;
@@ -221,7 +215,6 @@ void BST<T>::clear(SmartPointer<Node> &node) {
             clear(node->right);
             node->right.nullify();
         }
-        node.nullify();
     }
 }
 

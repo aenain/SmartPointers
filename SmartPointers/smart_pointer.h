@@ -43,20 +43,22 @@ public:
 
 template <class T>
 void SmartPointer<T>::add_reference() {
-    if (_pointer)
+    if (_pointer && _counter)
         (*_counter)++;
 }
 
 template <class T>
 void SmartPointer<T>::remove_reference() {
-    if (_pointer)
+    if (_pointer && _counter)
         (*_counter)--;
 }
 
 template <class T>
 void SmartPointer<T>::remove_object_if_there_are_no_references_left() {
-    if (*_counter == 0 && _pointer)
+    if (_counter && _pointer && *_counter == 0) {
         delete _pointer;
+        delete _counter;
+    }
 }
 
 template <class T>
@@ -75,6 +77,7 @@ void SmartPointer<T>::nullify() {
     remove_object_if_there_are_no_references_left();
 
     _pointer = NULL;
+    _counter = NULL;
 }
 
 template <class T>
