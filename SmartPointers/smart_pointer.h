@@ -78,6 +78,8 @@ template <class T>
 void SmartPointer<T>::nullify() {
     remove_reference();
     remove_object_if_there_are_no_references_left();
+
+    _pointer = NULL;
 }
 
 template <class T>
